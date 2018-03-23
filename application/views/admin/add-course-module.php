@@ -1,198 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Success Valley</title>
-    <?php require_once('includes/common-css.php');?>
-</head>
-<body>
-    <!-- Pre-loader start -->
-    <div class="theme-loader">
-        <div class="loader-track">
-            <div class="preloader-wrapper">
-                <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-                <div class="spinner-layer spinner-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-                
-                <div class="spinner-layer spinner-yellow">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-                
-                <div class="spinner-layer spinner-green">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pre-loader end -->
-    <div id="pcoded" class="pcoded">
-        <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
-              <!----header start------->
-           <?php require_once('includes/header.php');?>
-			<!--header ending-->
-            <!-- Sidebar inner chat end-->
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-				  <!--start left sidebar-->
-                 <?php require_once('includes/left-sidebar.php');?>
-					<!---left side bar---->
-                    <div class="pcoded-content">
-                        <!-- Page-header start -->
-                        <div class="page-header">
-                            <div class="page-block">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <div class="page-header-title">
-                                            <h5 class="m-b-10">Course Module</h5>
-                                            <p class="m-b-0" style="opacity:0">Lorem Ipsum is simply dummy text of the printing</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <!--<ul class="breadcrumb">
-                                            <li class="breadcrumb-item">
-                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
-                                            </li>
-                                            <li class="breadcrumb-item"><a href="#!">Ready To Use</a>
-                                            </li>
-                                            <li class="breadcrumb-item"><a href="#!">Job Application Form</a>
-                                            </li>
-                                        </ul>-->
-                                    </div>
-                                </div>
-                            </div>
+<div class="pcoded-inner-content">
+  <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                    <!-- Job application card start -->
+                        <div class="card">
+                        <div class="card-header">
+                            <?php if(!empty($faq[0])): ?>
+                                <h4 class="box-title" style="color:#448aff";>Edit Course Module</h4>
+                            <?php else: ?>
+                              <h4 class="box-title" style="color:#448aff";>Add Course Module</h4>
+                            <?php endif; ?>
+                            <span></span>
                         </div>
-                        <!-- Page-header end -->
-                        <div class="pcoded-inner-content">
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <!-- Page body start -->
-                                    <div class="page-body">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <!-- Job application card start -->
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                    <?php
-            if(!empty($faq[0]))
-                             {
-                             
-                echo '<h4 class="box-title" style="color:#448aff";>Edit Course Module</h4>';
-                
-                }
-                else
-                {
-                     echo '<h4 class="box-title" style="color:#448aff";>Add Course Module</h4>';
-                }
-            ?>
-                                                        <span></span>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div class="j-wrapper ">
-                                                          <?php
-                             if(!empty($faq[0]))
-                             {
-                              ?>
-                                                            <form action="<?php echo base_url('admin/home/faq_edit/'.$faq[0]->faq_id); ?>" method="post" class="j-pro" id="j-pro" enctype="multipart/form-data" >
-															   <?php  
-                           }
-                     else{
-                           ?>
-						      <form action="<?php echo base_url('admin/home/add_faq'); ?>" method="post" class="j-pro" id="j-pro" enctype="multipart/form-data" novalidate>
+                        <div class="card-block">
+                            <div class="j-wrapper ">
+                                <?php if(!empty($faq[0])): ?>
+                                    <form 
+                                        action="<?php echo base_url('admin/home/faq_edit/'.$faq[0]->faq_id); ?>" 
+                                        method="post" class="j-pro" id="j-pro" 
+                                        enctype="multipart/form-data" >
+								<?php  else: ?>
+						            <form action="<?php echo base_url('admin/home/add_faq'); ?>" method="post" class="j-pro" id="j-pro" enctype="multipart/form-data" novalidate>
 															
-						        <?php
-                            }
-                               ?>
-                                                                <!-- end /.header-->
-                                                                <div class="j-content">
-                                                                    <!-- start name -->
-                                                                    <div class="j-row">
-                                                                   <div class="j-span6 j-unit">
-                                                                            <div class="j-input">
-                                                            <select name="course_name" class="form-control" id="course_name">
-                            <option value="">Select Course</option>
-							<!--<option value="">Spoken English</option>
-							<option value="">course2</option>
-							<option value="">course3</option>-->
-						
-                            <?php
-                            foreach ($course as $key=>$value) {
-						    
-                            echo '<option value="'.$value->course_id.'">'.$value->course_name.'</option>';
-                            }
-							
-                            ?>
-                            </select>
-                                                                     
-																				   <span class="j-tooltip j-tooltip-right-top">Select Course</span>
-                                                                            </div>
-                                                                        </div>
-																		                                                                                                                                
-                                                                          <!--<div class="j-span6 j-unit">
-                                                                            <div class="j-input">
-																				 <h4 class="sub-title">Description</h4>
-                                                                                <textarea type="text" id="editor1" name="faq_description" placeholder="Faq Description"><?php //echo @$faq[0]->faq_description ?></textarea>
-																				   <span class="j-tooltip j-tooltip-right-top">Faq Description</span>
-																				   
-                                                                            </div>
-                                                                        </div>-->
-                                                                    </div>
-	<div class="j-row wrappers" id="add_module_form">
-        <div id="module-form">
-	   <!--<h5>Add Modules</h5>-->
-	   <div class="j-span3 j-unit">
-            <div class="j-input">
-                <!--<label>Course Module</label>-->
-                <input type="text" id="course_module" name="course_module" placeholder="Module 1" value="<?php echo @$profile[0]->profile_title ?>">
-				<span class="j-tooltip j-tooltip-right-top">Module1</span>
-            </div>
-        </div>
-	<div class="j-span3 j-unit">
-        <div class="j-input j-append-small-btn">
-            <div class="j-file-button">
-                Browse
-                <input type="file" name="course_pdf" onchange="document.getElementById('file1_input').value = this.value;">
-            </div>
-            <input type="text" id="file1_input" readonly="" placeholder="Add Course Pdf">
-		    <?php if(!empty($package[0])){?>
-             <img  src="<?php echo base_url();?>uploads/package/<?php echo  $package[0]->package_image; ?>" width="100" height="100">
-            <?php } ?>
-            <input type="hidden" name="temp_img" value="<?php echo @$package[0]->package_image; ?>">
-            <?php echo form_error('package_image','<p class="help-block error_msg">','</p>'); ?>
+						        <?php endif; ?>
+                                <!-- end /.header-->
+                                <div class="j-content">
+                                    <!-- start name -->
+                                    <div class="j-row">
+                                        <div class="j-span6 j-unit">
+                                            <div class="j-input">
+                                                <select name="course_name" class="form-control" id="course_name">
+                                                    <option value="">Select Course</option>
+                        	                       <?php foreach ($course as $key=>$value): ?>
+                                                    <option value="<?= $value->course_id ?>">
+                                                        <?= $value->course_name ?>
+                                                    </option>
+                                                    <?php endforeach; ?>
+                                                </select>
+												<span class="j-tooltip j-tooltip-right-top">
+                                                    Select Course
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--<div class="j-span6 j-unit">
+                                            <div class="j-input">
+												<h4 class="sub-title">Description</h4>
+                                                <textarea type="text" id="editor1" name="faq_description" placeholder="Faq Description">
+                                                    <?php //echo @$faq[0]->faq_description ?>
+                                                </textarea>
+													<span class="j-tooltip j-tooltip-right-top">
+                                                        Faq Description
+                                                    </span>
+                                            </div>
+                                        </div>-->
+                                    </div>
+	                               <div class="j-row wrappers" id="add_module_form">
+                                    <div id="module-form">
+	                                <!--<h5>Add Modules</h5>-->
+	                                   <div class="j-span3 j-unit">
+                                            <div class="j-input">
+                                            <!--<label>Course Module</label>-->
+                                                <input type="text" id="course_module" name="course_module" placeholder="Module 1" value="<?php echo @$profile[0]->profile_title ?>">
+				                                <span class="j-tooltip j-tooltip-right-top">Module1</span>
+                                            </div>
+                                        </div>
+	                                   <div class="j-span3 j-unit">
+                                            <div class="j-input j-append-small-btn">
+                                                <div class="j-file-button">
+                                                    Browse
+                                                    <input type="file" name="course_pdf" onchange="document.getElementById('file1_input').value = this.value;">
+                                                </div>
+                                                    <input type="text" id="file1_input" readonly="" placeholder="Add Course Pdf">
+		                                            <?php if(!empty($package[0])): ?>
+                                                        <img  src="<?php echo base_url();?>uploads/package/<?php echo  $package[0]->package_image; ?>" width="100" height="100">
+                                                    <?php endif; ?>
+                                                        <input type="hidden" name="temp_img" value="<?php echo @$package[0]->package_image; ?>">
+                                                        <?php echo form_error('package_image','<p class="help-block error_msg">','</p>'); ?>
             <span class="j-tooltip j-tooltip-right-top">Course Pdf</span>
         </div>
     </div>
@@ -354,10 +240,6 @@
     </div>
   </div>
 </div>
-
-<!-- ////////////////////////////////////////////////////////////////////////////-->
-
-
 <?php require_once('includes/common-js.php');?>
 <!---add more branch------>
 <script type="text/javascript">
@@ -431,7 +313,7 @@ $('#faq_id').val($(this).data('id'));
         $.ajax({
             url: 'language_count_and_get',
             type: 'POST',
-            dataType: 'text',
+            // dataType: 'text',
             data: {id: this.value},
             // data: this.value,
             success: function(response) {
@@ -476,13 +358,9 @@ $('#faq_id').val($(this).data('id'));
                         <div class="j-response"></div>
                         <!-- end response from server -->
                     </div>
-                    <p>Add More</p>
-
-                `
-                    // $("#language").val(language);
+                    <p>Add More</p>`
                 })
                 $("#add_module_form").html(html);
-                
             },
             error: function(xhr,status,error) {
                 console.log(error);
@@ -491,7 +369,5 @@ $('#faq_id').val($(this).data('id'));
     })
   })
 </script>
-
 </body>
-
 </html>

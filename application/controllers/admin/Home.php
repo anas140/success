@@ -107,12 +107,11 @@ class Home extends CI_Controller {
 	    ///////course module///////
     function course_module() {
        $this->admin->start_session();
-        if(!$this->admin->is_loggedin())
-        {
+        if(!$this->admin->is_loggedin()) {
           redirect('admin/home/login');
         }
          $data["course"] = $this->event_model->get_courses();
-         // $this->load->view('admin/templates/header');
+         $this->load->view('admin/templates/header');
          $this->load->view('admin/add-course-module',$data);
          // $this->load->view('admin/templates/footer');
     }
